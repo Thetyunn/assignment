@@ -10,20 +10,22 @@ let product = [
   { name: "Juice", price: 3.25 },
 ];
 
-let total_Price = 0;
+let totalPrice = 0;
 for (let i = 0; i < product.length; i++) {
-  total_Price += product[i].price;
+  totalPrice += product[i].price;
 }
-console.log(`The Total Cost : $ ${total_Price}`);
+console.log(`The Total Cost : $ ${totalPrice}`);
 
 let discount = 0.1;
-let cost = total_Price * discount;
-total_Price = total_Price - cost;
+let cost = totalPrice * discount;
+// totalPrice = totalPrice - cost;
+totalPrice -= cost;
 console.log(`The discount applied : $ ${cost}`);
 
 let tax = 0.07;
-let taxpayment = total_Price * tax;
-total_Price = total_Price + taxpayment;
-console.log(`Tax amount : $ ${taxpayment}`);
+let taxPayment = totalPrice * tax;
+// totalPrice = totalPrice + taxpayment;
+totalPrice += taxPayment;
+console.log(`Tax amount : $ ${taxPayment}`);
 
-console.log(`The final amount : $ ${total_Price}`);
+console.log(`The final amount : $ ${totalPrice}`);
