@@ -1,13 +1,20 @@
-let area = [
-  { name: "living_room", sqft: 200, cost: 15 },
+let areas = [
+  { name: "Living Room", sqft: 200, cost: 15 },
   { name: "Kitchen", sqft: 150, cost: 20 },
   { name: "Bathroom", sqft: 100, cost: 25 },
 ];
-let areaCost = 0;
-let totalArea = 0;
-for (let i = 0; i < area.length; i++) {
-  areaCost = area[i].sqft * area[i].cost;
-  console.log(` Cost for ${area[i].name} is $ ${areaCost} .`);
-  totalArea += areaCost;
+
+function calculateCost(areas) {
+  let totalCost = 0;
+  for (let i = 0; i < areas.length; i++) {
+    let areaCost = areas[i].sqft * areas[i].cost;
+
+    console.log(`Cost for ${areas[i].name} is $${areaCost}.`);
+
+    totalCost += areaCost;
+  }
+  return totalCost;
 }
-console.log(`Total Renovaation :$ ${totalArea}`);
+let totalCost = calculateCost(areas);
+
+console.log(`Total Renovation Cost: $${totalCost}`);

@@ -1,8 +1,8 @@
-let product = [
+let products = [
   { name: "Bread", price: 2.5 },
   { name: "Milk", price: 3.0 },
   { name: "Eggs", price: 2.0 },
-  { name: "Chesse", price: 4.5 },
+  { name: "Cheese", price: 4.5 },
   { name: "Apples", price: 5.0 },
   { name: "Chicken", price: 8.0 },
   { name: "Rice", price: 3.5 },
@@ -10,22 +10,25 @@ let product = [
   { name: "Juice", price: 3.25 },
 ];
 
-let totalPrice = 0;
-for (let i = 0; i < product.length; i++) {
-  totalPrice += product[i].price;
+let totalCost = 0;
+
+for (let i = 0; i < products.length; i++) {
+  totalCost += products[i].price;
 }
-console.log(`The Total Cost : $ ${totalPrice}`);
 
-let discount = 0.1;
-let cost = totalPrice * discount;
-// totalPrice = totalPrice - cost;
-totalPrice -= cost;
-console.log(`The discount applied : $ ${cost}`);
+console.log(`The Total Cost: $${totalCost}`);
 
-let tax = 0.07;
-let taxPayment = totalPrice * tax;
-// totalPrice = totalPrice + taxpayment;
-totalPrice += taxPayment;
-console.log(`Tax amount : $ ${taxPayment}`);
+function calculatedCost(cost, percent) {
+  return cost * (percent / 100);
+}
+let disCost = calculatedCost(totalCost, 10);
+totalCost -= disCost;
 
-console.log(`The final amount : $ ${totalPrice}`);
+console.log(`The discount applied: $${disCost}`);
+
+let taxPay = calculatedCost(totalCost, 7);
+
+totalCost += taxPay;
+
+console.log(`Tax amount: $${taxPay}`);
+console.log(`Final amount: $${totalCost}`);
